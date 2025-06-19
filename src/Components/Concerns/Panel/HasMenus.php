@@ -2,17 +2,15 @@
 
 namespace Merlion\Components\Concerns\Panel;
 
-use Merlion\Components\Menu;
+use Illuminate\Support\Facades\Log;
 
 trait HasMenus
 {
 
-    protected array $menus = [];
-
     public function clearMenus(): static
     {
-        $this->menus = [];
-        return $this;
+        Log::debug('clear menus');
+        return $this->clear('menus');
     }
 
     public function menus($menus): static
