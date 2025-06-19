@@ -9,7 +9,6 @@ trait HasMenus
 
     public function clearMenus(): static
     {
-        Log::debug('clear menus');
         return $this->clear('menus');
     }
 
