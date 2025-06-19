@@ -1,0 +1,22 @@
+{
+    "name": "parse/merlion",
+    "autoload": {
+        "psr-4": {
+            "Merlion\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "require": {
+        "inertiajs/inertia-laravel": "*",
+        "spatie/laravel-query-builder": "^6.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Merlion\\MerlionServiceProvider"
+            ]
+        }
+    }
+}

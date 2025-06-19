@@ -1,0 +1,3 @@
+<script {{$attributes}}>
+    {{$getScript()}}
+</script>

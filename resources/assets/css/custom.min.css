@@ -1,0 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.btn-xs {
+    font-size: .62rem;
+    padding: .12rem .28rem
+}
+
+.hidden {
+    display: none !important;
+}
+
+.navbar-brand-box img{
+    height: 30px;
+}
+
+.navbar-brand-box .logo-sm img {
+    max-width: 34px !important;
+    max-height: 42px !important;
+}
+
+.navbar-brand-box .logo-lg img {
+    max-width: 164px !important;
+    max-height: 42px !important;
+}
