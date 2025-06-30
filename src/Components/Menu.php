@@ -2,7 +2,6 @@
 
 namespace Merlion\Components;
 
-use Illuminate\Support\Facades\Log;
 use Merlion\Components\Concerns\AsCell;
 use Merlion\Components\Concerns\HasIcon;
 use Merlion\Components\Concerns\HasLink;
@@ -30,7 +29,6 @@ class Menu extends Renderable
 
     public function route($route, ...$args): static
     {
-        Log::debug(...$args);
         $this->link(panel()->route($route, ...$args));
         return $this;
     }

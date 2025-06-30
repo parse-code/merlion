@@ -55,4 +55,9 @@ class Panel extends Renderable
         }
     }
 
+    public static function resloved($callback)
+    {
+
+    }
+
 }

@@ -4,6 +4,7 @@ namespace Merlion\Components\Concerns\Panel;
 
 use Closure;
 use Illuminate\Support\Str;
+use Merlion\Components\Panel;
 
 trait WithRoutes
 {
@@ -64,6 +65,13 @@ trait WithRoutes
     {
         $this->routes[] = $routes;
         return $this;
+    }
+
+    public static function withRoutes(Closure|string $routes): void
+    {
+        app()->afterResolving(Panel::class, function () use ($routes) {
+            panel()->routes($routes);
+        });
     }
 
     public function route($name, ...$args)
