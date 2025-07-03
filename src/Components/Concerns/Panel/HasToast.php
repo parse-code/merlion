@@ -28,4 +28,18 @@ trait HasToast
     {
         return session()->get('toast.message');
     }
+
+    public function getAlert()
+    {
+        return session()->get('alert.content');
+    }
+
+    public function alert($content, $type = 'success'): static
+    {
+        session()->flash('alert', [
+            'content' => $content,
+            'type'    => $type,
+        ]);
+        return $this;
+    }
 }

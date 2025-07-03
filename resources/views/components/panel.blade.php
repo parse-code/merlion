@@ -30,6 +30,7 @@
                         </div>
                     </div>
                     <!-- end page title -->
+                    @include('merlion::components.widgets.alert')
                     {!! render(panel()->getContent()) !!}
                     @stack('content')
                 </div>
