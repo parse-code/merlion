@@ -6,7 +6,7 @@ trait HasContext
 {
     protected array $context = [];
 
-    private array $_stack = [];
+    public array $_stack = [];
 
     public function set($key, $value = null): static
     {
@@ -29,7 +29,7 @@ trait HasContext
     public function push($key, $value = null): static
     {
         if (empty($this->_stack[$key])) {
-            $this->_stack = [];
+            $this->_stack[$key] = [];
         }
         $this->_stack[$key][] = $value;
         return $this;

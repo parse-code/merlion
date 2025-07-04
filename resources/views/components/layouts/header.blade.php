@@ -73,10 +73,11 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         {!! render($getComponents('user_menu')) !!}
-                        @foreach($getMenus(\Merlion\Components\Panel::MENU_TOP_USER) as $user_menu)
+                        @foreach($getUserMenus() as $user_menu)
                             <a class="dropdown-item" href="{{$user_menu->getLink()}}">
-                                 <span
-                                     class="align-middle">{{$user_menu->getLabel()}}
+                                <i class="{{$user_menu->getIcon()}} text-muted fs-16 align-middle me-1"></i>
+                                <span
+                                    class="align-middle">{{$user_menu->getLabel()}}
                                  </span>
                             </a>
                         @endforeach
