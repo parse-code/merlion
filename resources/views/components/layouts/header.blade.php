@@ -73,9 +73,17 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         {!! render($getComponents('user_menu')) !!}
+                        @foreach(panel()->getMenus(\Merlion\Components\Panel::MENU_TOP_USER) as $user_menu)
+                            <a class="dropdown-item" href="{{$user_menu->getLink()}}">
+                                 <span
+                                     class="align-middle">{{$user_menu->getLabel()}}
+                                 </span>
+                            </a>
+                        @endforeach
                         <a class="dropdown-item" href="#" data-action="/admin/logout" data-method="post">
                             <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                class="align-middle">{{__('merlion::base.logout')}}</span></a>
+                                class="align-middle">{{__('merlion::base.logout')}}</span>
+                        </a>
                     </div>
                 </div>
             </div>
