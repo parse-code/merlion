@@ -2,24 +2,22 @@
 
 namespace Merlion\Components\Concerns\Panel;
 
-use Illuminate\Support\Facades\Log;
-
 trait HasMenus
 {
 
-    public function clearMenus(): static
+    public function clearMenus($position = 'menus'): static
     {
-        return $this->clear('menus');
+        return $this->clear($position);
     }
 
-    public function menus($menus): static
+    public function menus($menus, $position = 'menus'): static
     {
-        $this->push('menus', $menus);
+        $this->push($position, $menus);
         return $this;
     }
 
-    public function getMenus(): array
+    public function getMenus($position = 'menus'): array
     {
-        return $this->fetch('menus');
+        return $this->fetch($position);
     }
 }
