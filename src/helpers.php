@@ -152,7 +152,7 @@ if (!function_exists('csp_nonce')) {
 }
 
 if (!function_exists('setting')) {
-    function setting($key, $value = null)
+    function setting($key, $default = null, $group = null)
     {
         if (is_array($key)) {
             foreach ($key as $k => $v) {
@@ -161,12 +161,6 @@ if (!function_exists('setting')) {
             return null;
         }
 
-        if (empty($value)) {
-            return Setting::get($key);
-        }
-
-        Setting::set($key, $value);
-
-        return null;
+        return Setting::get($key, $default, $group);
     }
 }

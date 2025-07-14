@@ -3,8 +3,6 @@
 namespace Merlion\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 
 class Setting extends Model
 {
@@ -20,10 +18,13 @@ class Setting extends Model
         } else {
             $setting = self::where('key', $key)->first();
         }
-        $value = $setting ? $setting->value : null;
+
+        $value = $setting?->value ?? $default;
+
         if (count($keys) > 1) {
-            $value = Arr::get(to_json($value), $keys[1]);
+            $value = data_get(to_json($value), $keys[1], $default);
         }
+
         return $value;
     }
 
