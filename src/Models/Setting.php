@@ -8,7 +8,7 @@ class Setting extends Model
 {
     protected $guarded = [];
 
-    public static function get($key, $default = null, $group = null)
+    public static function get($key, $group = null)
     {
         $keys = explode(".", $key);
         $key  = $keys[0];
@@ -19,10 +19,10 @@ class Setting extends Model
             $setting = self::where('key', $key)->first();
         }
 
-        $value = $setting?->value ?? $default;
+        $value = $setting?->value;
 
         if (count($keys) > 1) {
-            $value = data_get(to_json($value), $keys[1], $default);
+            $value = data_get(to_json($value), $keys[1]);
         }
 
         return $value;

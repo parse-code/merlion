@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Contracts\Support\Responsable;
 use Merlion\Components\Panel;
 use Merlion\MerlionManager;
 use Merlion\Models\Setting;
@@ -152,15 +151,15 @@ if (!function_exists('csp_nonce')) {
 }
 
 if (!function_exists('setting')) {
-    function setting($key, $default = null, $group = null)
+    function setting($key, $group = null)
     {
         if (is_array($key)) {
             foreach ($key as $k => $v) {
-                Setting::set($k, $v);
+                Setting::set($k, $v, $group);
             }
             return null;
         }
 
-        return Setting::get($key, $default, $group);
+        return Setting::get($key, $group);
     }
 }
